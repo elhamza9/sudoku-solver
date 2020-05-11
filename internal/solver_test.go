@@ -3,11 +3,24 @@ package sudoku
 
 import "testing"
 func TestSolve(t *testing.T) {
-	solved, _ := solve(InitGrid());
+	// 1. Test solvable grid
+	solvable := [SIZE][SIZE]int{
+		{ 0, 9, 4, 0, 3, 0, 1, 0, 0 },
+		{ 8, 1, 2, 7, 0, 0, 0, 9, 6 },
+		{ 3, 0, 0, 1, 9, 0, 0, 0, 0 },
+		{ 0, 3, 0, 9, 0, 4, 6, 0, 0 },
+		{ 0, 0, 8, 6, 1, 3, 0, 4, 9 },
+		{ 0, 0, 6, 2, 0, 0, 0, 0, 1 },
+		{ 4, 0, 3, 5, 0, 0, 0, 0, 8 },
+		{ 5, 0, 0, 0, 2, 0, 7, 0, 0 },
+    	{ 0, 6, 0, 0, 0, 8, 4, 1, 5 },
+	};
+	solved, _ := solve(solvable);
 	if solved == false {
 		t.Error("Error Solving solvable puzzle");
 	}
 
+	// 2. Test unsolvable grid
 	unsolvable := [SIZE][SIZE]int {
 		{ 5, 1, 6, 8, 4, 9, 7, 3, 2 },
 		{ 3, 0, 7, 6, 0, 5, 0, 0, 0 },

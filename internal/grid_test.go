@@ -2,19 +2,9 @@ package sudoku
 
 import "testing"
 
-func TestInitGrid(t *testing.T) {
-	g := InitGrid();
-
-	for r := 0; r < SIZE; r++ {
-		for c := 0; c < SIZE; c++ {
-			if g[r][c] < 0 || g[r][c] > 9 {
-				t.Error("Value Error in initial grid cell")
-			}
-		}
-	}
-}
 
 func TestIsSolved(t *testing.T) {
+	// 1. Testing unsolved grid
 	g := [SIZE][SIZE]int{
 		{ 6, 9, 4, 0, 3, 0, 1, 0, 0 },
 		{ 8, 1, 2, 7, 0, 0, 0, 9, 6 },
@@ -31,6 +21,7 @@ func TestIsSolved(t *testing.T) {
 		t.Error("Error isSolved case unsolved grid");
 	}
 
+	// 2. Testing solved grid
 	g = [SIZE][SIZE]int{
 		{ 6, 9, 4, 8, 3, 2, 1, 5, 7 },
 		{ 8, 1, 2, 7, 4, 5, 3, 9, 6 },
@@ -60,15 +51,19 @@ func TestIsSafe(t *testing.T) {
 		{ 5, 0, 0, 0, 2, 0, 7, 0, 0 },
     	{ 0, 6, 0, 0, 0, 8, 4, 1, 5 },
 	};
+	// 1. Case value already exists in same row
 	if isSafe(g, 0, 0, 1) {
 		t.Error("Error isSafe case not safe (value exists in row)");
 	}
+	// 2. Case value already exists in same col 
 	if isSafe(g, 0, 0, 8) {
 		t.Error("Error isSafe case not safe (value exists in column)");
 	}
+	// 3. Case value already exists in same subgrid
 	if isSafe(g, 0, 0, 2) {
 		t.Error("Error isSafe case not safe (value exists in subgrid)");
 	}
+	// 4. Case Safe value
 	if !isSafe(g, 0, 0, 6) {
 		t.Error("Error isSafe case safe");
 	}

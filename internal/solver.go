@@ -1,5 +1,9 @@
 package sudoku
 
+// solve recursively solves the given grid
+// and returns:
+//	- boolean indicating whether it was solved or not
+//	- resulting grid
 func solve( grid [SIZE][SIZE]int ) (bool, [SIZE][SIZE]int) {
 
 	// 1. Check if Grid is solved

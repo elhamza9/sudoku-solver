@@ -4,24 +4,6 @@ package sudoku
 const SIZE int = 9;
 
 
-// InitGrid provides the initial Grid to be solved.
-// Empty cells to be solved for are filled with zero.
-func InitGrid() (initialGrid [SIZE][SIZE]int) {
-	initialGrid = [SIZE][SIZE]int{
-		{ 0, 9, 4, 0, 3, 0, 1, 0, 0 },
-		{ 8, 1, 2, 7, 0, 0, 0, 9, 6 },
-		{ 3, 0, 0, 1, 9, 0, 0, 0, 0 },
-		{ 0, 3, 0, 9, 0, 4, 6, 0, 0 },
-		{ 0, 0, 8, 6, 1, 3, 0, 4, 9 },
-		{ 0, 0, 6, 2, 0, 0, 0, 0, 1 },
-		{ 4, 0, 3, 5, 0, 0, 0, 0, 8 },
-		{ 5, 0, 0, 0, 2, 0, 7, 0, 0 },
-    	{ 0, 6, 0, 0, 0, 8, 4, 1, 5 },
-	};
-
-	return initialGrid;
-}
-
 // isSolved checks if the Grid is solved
 func isSolved(grid [SIZE][SIZE]int) (solved bool, row int, col int) {
 	solved = true;
