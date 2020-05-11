@@ -4,7 +4,7 @@ package solver
 // and returns:
 //	- boolean indicating whether it was solved or not
 //	- resulting grid
-func solve( grid [SIZE][SIZE]int ) (bool, [SIZE][SIZE]int) {
+func Solve( grid [SIZE][SIZE]int ) (bool, [SIZE][SIZE]int) {
 
 	// 1. Check if Grid is solved
 	solved, nextRow, nextCol := isSolved(grid);
@@ -16,7 +16,7 @@ func solve( grid [SIZE][SIZE]int ) (bool, [SIZE][SIZE]int) {
 	for val := 1; val <= 9; val++ {
 		if isSafe(grid, nextRow, nextCol, val) {
 			grid[nextRow][nextCol] = val;
-			res, resGrid := solve(grid);
+			res, resGrid := Solve(grid);
 			if res {
 				return res, resGrid;
 			}
