@@ -1,4 +1,4 @@
-package sudoku
+package solver 
 
 // Grid size: SIZE x SIZE
 const SIZE int = 9;

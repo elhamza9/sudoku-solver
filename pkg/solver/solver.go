@@ -1,4 +1,4 @@
-package sudoku
+package solver 
 
 // solve recursively solves the given grid
 // and returns:
